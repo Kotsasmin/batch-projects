@@ -1,0 +1,946 @@
+20022021-0426
+
+<html>
+<head>
+<title>What's new in copyitright's Updatable Minecraft Launcher?</title>
+</head>
+<body>
+<pre>
+
+ <b>WEBSITE/DOWNLOADS:</b> <b><A HREF="https://www.playfreeminecraft.nl" target="_blank" title="www.playfreeminecraft.nl">www.playfreeminecraft.nl</A></b>
+		    <A HREF="https://www.minecraftlauncher.nl" target="_blank" title="www.minecraftlauncher.nl">www.minecraftlauncher.nl</A>
+		    <i><A HREF="http://web.minecraftnoob.com" target="_blank" title="web.minecraftnoob.com">web.minecraftnoob.com</A></i>
+
+ <b> CHAT AND SUPPORT:</b> <a href="https://discord.gg/4xHvdYG" target="_blank" title="Visit my Discord server (no account required)">discord.gg/4xHvdYG</a>
+
+
+
+
+
+<b>ToDo's</b>
+
+- Find a way to (hopefully) circumvent Microsoft Account Authentication
+
+- <b><font color="FF7700">[BUSY]</font></b> Continue the search for a better Installer program and/or compression
+         algorithm to (hopefully) decrease <b><a href="https://en.wikipedia.org/wiki/Antivirus_software#Problems_caused_by_false_positives" target="_blank" title="Click for more info">false positive</a></b> virus warning ratio
+
+         <b>(i could really use some help with the Inno Setup script, though =/ )</b>
+
+- <b><font color="FF7700">[BUSY]</font></b> Again trying to fix/improve the block state detection (FINDSTR regex is being a b!tch again...)
+
+- Perhaps update my website <a href="https://www.playfreeminecraft.nl/downloads.htm" target="_blank" title="click me! :D">downloads</a> to build/version <u>11012021-1736</u>
+
+- Update website's screenshots/video and launcher documentation
+
+- Got any suggestions? Tell me!
+
+
+
+<b>The following changes can be expected with the upcoming release:</b>
+<!--<b><font color="FF0000">[TODO]</font></b>
+<!--<b><font color="FF7700">[BUSY]</font></b>-->
+<!--<b><font color="00CC00">[DONE]</font></b>-->
+- <b><font color="00CC00">[DONE]</font></b> Made it so that when using the Uninstall script, it actually removes HOSTS
+         related 'Auth (un)blocker' entries/Auth server blocks (*wink* @ Shayenne :P)
+
+
+
+
+
+<b>Overview of Launcher releases</b>
+
+  *** Reupdate your launcher if you see any "<b><font color=FF0000">UPDATED</font></b>" changes ***
+
+
+
+  <b>(20-02-2021 @ 04:26 CET/UTC+1)</b> - the <u>"Distancing is <i>killing</i> Me"</u> update
+
+  * <i>reverted a change</i>: Again, "cracked" users can <u>ONLY</u> be added when <b>BLOCKING</b> the Auth server
+
+    (reason: it was causing too much confusion under "cracked" users)
+
+  * When a selected user (if any) and current block state aren't compatible with each other, users can continue at their own discretion
+    (this eliminates possible situations where <b>LEGITIMATE</b> users get "stuck" if a previous "<u>cracked</u>" user forgets to <i>unblock</i> Auth server)
+
+  * When invalid or missing 'Auth (un)blocker' HOSTS entries are detected, it will
+    backup HOSTS file, repair the problems and return to the <i>Auth (un)blocker</i> menu
+
+  * The applicable blocking mode is now visible in the Auth (un)blocker menu
+
+  * PowerShell tweaks for requesting elevated (admin) privileges, to
+    hopefully make it compatible with more recent PowerShell versions
+
+    note: i'm not sure if this counts for everyone, but at times PowerShell
+	      can respond quite slow before it shows the UAC dialog/notification
+
+  * Global script optimizations/corrections
+
+  * Updated <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> to version <a href="https://curl.haxx.se/windows/" target="_blank">7.75.0</a> (<a href="https://youtu.be/pjqd-r7hAjI" target="_blank">video</a>)
+
+
+
+  <b>(11-01-2021 @ 17:36 CET/UTC+1)</b> - the <u>"I can't Think of a Name"</u> update
+
+  * "Cracked" users can now be added regardless of current Auth server block state
+
+  * Readded launcher notice for when my launcher has (possibly) become outdated 
+
+  * Changed some descriptions that referred to switching launcher files
+
+  * Global script optimizations/tweaks
+
+  * Updated Website downloads to build/version <b>08012021-1700</b>
+
+
+
+  <b>(10-01-2021 @ 01:16 CET/UTC+1)</b> - the <u>"Simp(lified)"</u> update
+
+  * My launcher and 'Auth (un)blocker' now see the difference between "Mojang" and "Xbox" accounts (no support for Microsoft Accounts yet)
+    (apparently "Xbox" account information is also partly written to '<b>launcher_accounts</b>', instead of only '<b>launcher_msa_credentials</b>'... :| )
+
+  * Simplified the working of 'Auth (un)blocker' by removing launcher file switching
+    (this also makes checking of mixed accounts irrelevant, because different account types can coexist)
+
+    Due to the above changes it has become <i>more</i> important to <b>NOT</b> select a <b>different</b> account type <u>before</u> having used 'Auth (un)blocker'
+    Besides this, it is <b><u>strongly</u></b> advised to use my launcher to <b>start</b> the game, as my launcher runs <i>important</i> <b>account</b>/<b>block state</b> checks
+
+    <b>TLDR</b>
+
+    Perhaps I've made it sound less <b>simp</b>le now, but please give it a try and share your thoughts about it <b>:)</b>
+
+
+
+  <b>(08-01-2021 @ 17:00 CET/UTC+1)</b> - the <u>"A Trip Down Memory Lane"</u> update
+
+  First my thoughts on this:
+
+  <img src="https://media.giphy.com/media/3o6ZsUxdqmMtsw6NYA/giphy.gif"</img><img src="https://media.giphy.com/media/27bTHqEIHpUOmV4YKG/giphy.gif"</img><img src="https://media.giphy.com/media/l0HlGd1H6XkdlfjZS/giphy.gif"</img>
+
+  * Again resolved problems with the recognizing of "cracked" user profiles...
+
+  * Don't iterate through loop when both DDNS update hosts are already set
+
+  * Improved some grammar to hopefully clear up any confusion about mixed "cracked"/legitimate accounts
+
+  * Updated <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> to version <a href="https://curl.haxx.se/windows/" target="_blank">7.74.0</a>
+
+
+
+  <b>(05-01-2021 @ 03:06 CET/UTC+1)</b> - the <u>"Insomnia"</u> update
+
+  * Before changing block state, check for any active/running Minecraft processes <u>first</u>,
+    instead of <i>first</i> checking the HOSTS file and currently selected user profile/account
+
+  + Added missing block state check for non-existing and empty 'launcher_accounts'
+
+  * Don't show a notice that no User profile/account has been selected, when no user profile/account exists
+
+  * Changed (un)block stategy so that users are able to switch profile/account state if current
+    'launcher_accounts' file appears to be empty (this actually was a low-key mistake, <b><a href="https://www.youtube.com/watch?v=-BxflApVKLc" target="_blank" title="YouTube">D'oh</a>!</b>)
+
+  * Made the external launcher scripts (except 'Auth (un)blocker') execute
+    slightly faster, by removing a line of code that was run twice
+
+  * When not having enabled 'Run as Administrator' registry fix, the launcher
+    no longer nags you at every launcher start (i feel your pain!)
+
+  * Applied launcher color to the launcher Uninstaller. The Uninstaller
+    now also shows a confirmation screen after removing the launcher
+
+  * <b><font color="red">Updated Launcher <a href="https://playfreeminecraft.nl/downloads.htm" target="_blank" title="click me! :D">downloads</a> on website to build <u>01012021-1508</u></font></b>
+
+
+
+  <b>(01-01-2021 @ 15:08 CET/UTC+1)</b> - the <u>"Let's Start 2021 Good!"</u> update
+
+  * Reconsidered and reimplemented support for formal "cracked" launcher profile entries
+    (old profiles can be recognized by the "(modified profile entry)" profile status text)
+
+
+
+  <b>(31-12-2020 @ 15:24 CET/UTC+1)</b> - the <u>"Happy New Year!"</u> update
+
+  * Resolved a really dumb mistake that made my launcher slower every time a new user was added to the launcher profile (performance boost!)
+
+  * Resolved various problems regarding recognizing user profiles, Player UUID's and launcher statistics
+
+  + Added a safety measure for if someone alters 'auth_conf' and enters invalid path characters that crash the launcher
+              (the launcher will still end unexpectedly, but it will reset 'auth_conf' as soon as you rerun the launcher) 
+
+  + Added Windows PATH environment check to verify if the launcher would successfully run
+
+
+
+  <b>(27-12-2020 @ 12:24 CET/UTC+1)</b> - the <u>"Final update of 2020? (I hope)"</u> update
+
+  * Small 'Auth (un)blocker' improvements for requesting elevated (Admin) privileges
+
+  * Changed the 'Auth (un)blocker' status text 'User Directory' to
+    'AppData Folder' and 'In-game Display Name' to 'Player Name'
+
+  * Resolved an error that would show if no random messages were present after updating launcher
+
+  * 'auth_conf' related launcher improvements for invalid/non-existing AppData locations
+    (instead of looking on a non-existing location it will generate/use a new 'auth_conf')
+
+  + Added two more people to the Donors screen :-)
+
+
+
+  <b>(26-12-2020 @ 17:53 CET/UTC+1)</b> - the <u>"Just an Update..."</u> update
+
+  + When creating/adding a "CRACKED" profile/user, the Launcher
+    will show the location of the profiles/accounts that it uses
+
+    (this is important, because since the introduction of 'auth_conf', locations can change)
+
+  * General/Global script Optimizations/Improvements/Fixes
+
+
+
+  <b>(23-12-2020 @ 10:44 CET)</b> - the <u>"We're not there yet..."</u> update
+
+  This is not a solution/workaround for Microsoft Accounts, but an update for the current problems
+
+  * Improved detection method of cracked/legitimate/demo and mixed user accounts
+
+    <b>NOTE:</b> Since Microsoft now stores user/account information in <b><i>launcher_accounts.json</i></b> instead
+          of <b><i>launcher_profiles.json</i></b>, it is most likely that you'll have to add a new "CRACKED" user
+
+          (if you want to use your <b><i>existing</i></b> profile, check <b><a href="https://i.imgur.com/qhRi3yd.png" target="_blank" title="I'm important, please click me :+)">this</a></b> link for instructions)
+
+  * Fixed Launcher and Updater to make it usable with certain special characters in (user/path/folder)names
+
+  * HOSTS File Fixer again traded places with 'Auth (un)blocker'
+    ('Auth (un)blocker' can be found by going to the installation folder or by right clicking on a shortcut and choosing 'Open file location')
+
+  * Improved Auth server block state detection
+
+  * Improved detection and method to apply 'Run as Administrator' registry fix
+    (enabling the registry fix also reveals a hidden option/easter egg)
+
+  + Added a config file 'auth_conf' to store/read Windows User information (Account name and APPDATA path)
+    You can read more about it by running 'Auth (un)blocker' and choosing menu option '[3]'    
+
+
+
+  <b>(05-11-2020 @ 03:40 CET)</b> - the <u>"Reincarnation"</u> update
+
+  * Again updated and readded my own server and resource pack
+
+  * Added additional Launcher entry for easier managing of my server/resource pack updates
+    (the entry has its own dedicated <b><i>game directory</i></b>, so it <u>won't</u> touch other user's files)
+
+  * <b><font color="00CC00">[NEW]</font></b> Added important information to launcher on how to prevent possible
+          game crashes when switching between new and old Minecraft versions
+
+  * Changed the <u>default</u> values for both "<b><i>crashAssistance</i></b>" and "<b><i>enableAnalytics</i></b>" to "<b><i>false</i></b>"
+    (not entirely sure what this does, so values are <u>only</u> set when creating a profile from scratch)
+  
+  * Updated the Dutch readme (LeesMij) with some useful info regarding <i>invalid sessions</i>
+
+  * Launcher optimizations (deleted unnecessary code, a side effect when adding new functionality)
+
+  * <b><font color="red">Updated Launcher <a href="https://playfreeminecraft.nl/downloads.htm" target="_blank" title="click me! :D">downloads</a> on website to build <u>03112020-1622</u></font> (finally! ^_^)</b>
+
+
+
+  <b>(03-11-2020 @ 16:22 CET)</b> - the <u>"Afterbirth"</u> update
+
+  * When the last account that a user selected appears to be a DEMO account,
+    it will deselect that account and offer the user to pick a different one
+
+  * Added option to update the launcher to the *<u>same</u>* version/build
+    Useful for when something's messed up/not working as expected
+
+
+
+  <b>(01-11-2020 @ 05:30 CET)</b> - the <u>"Deliverance"</u> update
+
+    After a lot of HARD work (the changes are proof of it), i came to the point where i can finally say
+
+    <b>"THIS IS IT!"</b>
+
+    Because of this i've given this update the title "<i>Deliverance</i>", because it really feels like one. <b>Enjoy!</b>
+
+
+  * <b>Fixed</b> timer setting for <u>Disabled</u> messages (timer was set to <b>10</b> seconds instead of <b>5</b>)
+
+  - <b>Removed</b> list with "cracked" servers (explanation below)
+
+    <i>After giving it some thought, I changed my mind. Maintaining a list of servers is time consuming.
+    My time/attention is better spend, elsewhere (on my launcher for instance, or on other activities)
+    If you want to play on "cracked" servers, a simple Google search gives you plenty of results</i>
+
+  + <b>Updated</b> the address of my Minecraft (test) server (<i><b>huh, what!?</b></i>) to <font color="777777">join.playfreeminecraft.nl</font><font color="CCCCCC">:25565</font>
+    (rest assured, the old/known <font color="777777">the.minecraftnoob.com</font><font color="CCCCCC">:25565</font> server address also still works</font>)
+
+  * Further <b>improved</b> the random message system by seperating/isolating language files
+    This also gives a small performance gain because localization is no longer mixed
+
+  * <b>Improved</b> error handling for random message system in case of a corrrupt download
+
+  * <b>Reverted</b> a change regarding <b>messages.cir</b> that was introduced two builds ago
+
+    <u>Reason</u>: <i>Apparently there is no (accurate) way to tell if a remote file is more recent than a locally existing
+            one, other than checking the <b>Content-Length</b> header or <u>downloading</u> the file and verifying its contents :-/</i>
+
+  - Again <b>removed</b> the contact email address, because most people prefer using <i>Discord</i> instead
+
+  * <b>Fixed</b> some general (stupid) mistakes
+
+
+
+  <b>(27-10-2020 @ 07:26 CET)</b> - the <u>"Performance Update"</u> update
+
+  * Improved overall performance of the launcher by deleting some debug code and running
+    network related and slow/unoptimized code in a seperate (asynchronous) process/thread
+
+
+
+  <b>(24-10-2020 @ 17:43 CEST)</b> - the <u>"Feedback Wanted"</u> update
+
+  * Decreased size of updates by <b><i>dynamically</i></b> downloading <i>jq-win32.exe</i> if installed version appears outdated
+
+  * Changed address of DDNS fallback host to <b>update.minecraftnoob.com</b> (previously: <b>updater.dynu.net</b>)
+
+  + Added <i>optional</i> feedback questions to the random message system
+
+  + Added more random messages (can't remember how many, i just need a better randomize function)
+
+  * <b>messages.cir</b> now only updates when there's a <u>new</u> list available
+    (previously it would download a new copy on <i>every</i> launcher start)
+
+  * Updated <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> to version <a href="https://curl.haxx.se/windows/" target="_blank">7.73.0</a>
+
+
+
+  <b>(11-09-2020 @ 16:22 CEST)</b> - the <u>"An Update to fix an Update"</u> update
+
+  * Changed update Notification system:
+
+    <b>NEW METHOD</b>: Disabled Notifications + Enabled Automatic Updates = <i><u>Auto-update</u> on new version</i>
+    <b>OLD METHOD</b>: Disabled Notifications + Enabled Automatic Updates = <i><u>Skip update</u> on new version</i>
+
+  * Again fixed <i>incorrectly</i> shown Update Notifications <u>state</u> in <b>HOSTS File Fixer</b> status summary
+
+
+
+  <b>(01-09-2020 @ 02:06 CEST)</b> - the <u>"You Like To Improve It"</u> update
+
+  * Globally improved grammar/spelling and being more descriptive
+
+  * Updated contact E-mail address
+
+  + Added stats to see when there are problems with the update hosts
+
+  * Updated <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> to version <a href="https://curl.haxx.se/windows/" target="_blank">7.72.0</a>
+
+
+
+  <b>(04-08-2020 @ 02:36)</b> - the <u>"Silence of the Developer"</u> update
+
+  * When adding a new player profile, the launcher will
+    warn user if there are running Minecraft processes
+
+  * Updated <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> to version <a href="https://curl.haxx.se/windows/" target="_blank">7.71.1</a>
+
+
+
+  <b>(22-06-2020 @ 01:30)</b> - the <u>"Random Message Madness"</u> update
+
+  * In case you haven't noticed it, the random message function
+    wasn't working anymore ("hooray" official launcher update!)
+
+    This has been fixed ;)
+
+
+
+  <b>(22-04-2020 @ 01:08)</b> - the <u>"CleanUp Time!"</u> update
+
+  - Removed code related to my custom resourcepack, because: <b>"WHO EVE<s>R</s>N NEEDS IT"</b>...
+
+  + Added some new random messages! (actually, i haven't... but i'll try to think of some new ones. Hopefully soon..)
+
+  + Added a Windows <b>context menu</b> tweak (also uploaded <u><b><a href="https://www.playfreeminecraft.nl/downloads/context_menu_tweak.zip" target="_blank">here</a></b></u>) to gain <i>quick</i> access to my Website, Discord server <u>AND</u> Spotnet usenet posts (completely optional) :D
+
+
+
+  <b>(17-03-2020 @ 21:42)</b> - the <u>"Another Bug Bites the Dust"</u> update
+
+  * Resolved a "<b><i>SaveToBuffer failed</i></b>" which caused the <b>Get Ready..!</b> window to freeze/hang
+
+    (<b>culprit</b>: a change in the <i>official</i> launcher)
+
+  + Added some new messages
+
+  * Updated <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> to version <a href="https://curl.haxx.se/windows/" target="_blank">7.69.1</a>
+
+
+
+  <b>(15-11-2019 @ 18:40)</b> - the <u>"YASSS!!"</u> update
+
+  * Thanks to <i><b>Jeff Mercado</b></i> @ <a href="https://www.stackoverflow.com" target="_blank">stackoverflow.com</a> and the help of <b><a href="#Kyllian#4867" title="Kyllian#4867">Kyllian</a></b> over at <a href="https://discord.gg/4xHvdYG" target="_blank">Discord</a>,
+    the "<b><i>I'm not able to run Minecraft</i></b>" accesstoken problem is resolved! (knock on wood)
+
+    <b><font color="red">THANK YOU GUYS! :D</font></b>
+
+  * <font color="green">Updated Launcher <u>downloads</u> on website to build <b>14112019-0134</b></font>
+
+
+
+  <b>(14-11-2019 @ 01:34)</b> - the <u>"MICROSOFT IS AT IT AGAIN..."</u> update
+
+  * November the 12th (2o19) Microsoft released a launcher update, and i can say that it
+    didn't play nice with my launcher. A lot of people couldn't launch Minecraft anymore
+
+    A definitive fix is in the making, but luckely i have two workarounds at hand
+    that you can try (<b>FYI</b>: Method '2' involves <i>Notepad++</i> and some reading skills):
+
+
+    <b>METHOD 1</b> (easy, but with possible caveat)
+
+    - Run '<i>Add Player</i>' -> add a new player -> Launch Minecraft
+
+
+    <u>Caveat</u>: Removing the <b>lastly</b> added player <i>may</i> result in Minecraft to <b>not</b> start again
+
+            It has something to do with the <i>order</i> in which the <b>Official</b> launcher reads player profiles
+            If the next player profile it encounters has <u>no</u> <i>accessToken</i>, the official launcher won't start
+
+            (this <u>only</u> counts for player profiles that were added with <i>previous</i> versions of my launcher)
+
+
+    <b>METHOD 2</b> (no caveats, but requires user attention)
+
+    <a href="https://i.imgur.com/2MPbJ9q.png" target="_blank">https://i.imgur.com/2MPbJ9q.png</a>
+
+
+
+    <b>NOTE</b>: Are you a <u>first-time</u> user of my launcher?
+          Then you don't have to bother with any of these workarounds <b>^_^</b>
+
+
+
+    As always: <b>Best</b> regards and <b>happy</b> Minecrafting<b>!</b>
+
+    - <b>copyitright</b>
+
+
+
+  <b>(02-11-2019 @ 19:42)</b>
+
+  * Resolved a returning notifications bug that slipped back into builds starting from <b>02092019-1542</b>
+    Users were getting <b>UNABLE TO RETRIEVE UPDATE INFORMATION</b>, even if they had notifications <u>disabled</u>
+
+
+
+  <b>(01-11-2019 @ 00:55)</b>
+
+  * Improved the Updater code by using two different DDNS addresses,
+    instead of the VERY often unreachable host *.minecraftnoob.com
+
+  * Resolved a minor (but perhaps annoying) inconvenience where previously signed in <b>DEMO</b> users
+    were presented with a <b>PLAY DEMO</b> button, after having created/added a <u>cracked</u> player profile
+
+
+
+  <b>(20-10-2019 @ 21:14)</b>
+
+  <b>Hello again!</b> Finally, the long awaited (sarcasm?) update is ready to be released to the public! <b>Enjoy!</b>
+
+
+  * '<b>Auth (un)blocker</b>' is no longer needed and has left the stage for '<b>HOSTS File Fixer</b>' (an explanation is available inside the program)
+
+  * '<b>Change Playername</b>' also left, because now there's '<b>Add Player</b>'!
+
+  * Updated <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> to version <a href="https://curl.haxx.se/windows/" target="_blank">7.66.0</a>
+
+  * Many global script optimizations (reducing filesize of Launcher)
+
+
+    <b>[AND THERE IS MORE]</b>
+
+
+    You are <b>no longer</b> required to register a free Mojang account, or to even <u>block</u> the <b>Auth server</b>.
+
+    <a href="https://giphy.com/search/joy" target="_blank" title="https://giphy.com/search/joy"><img src="https://media.giphy.com/media/DYH297XiCS2Ck/giphy.gif" width="240" height="186"></img></a> <a href="https://giphy.com/search/joy" target="_blank" title="https://giphy.com/search/joy"><img src="https://media.giphy.com/media/rjkJD1v80CjYs/giphy.gif" width="240" height="240"></img></a>
+
+
+    <b>I UNDERSTAND THAT YOU ARE VERY EXCITED TO READ THIS</b>
+
+
+    <i>But don't just take my word for it...</i>
+
+    <b><i><a href="https://youtu.be/DwhRcSoXZyo" target="_blank">Here</a></i></b> is some actual (video) proof to <u>see</u> it for <b>yourself</b>
+
+    <font size="1">(yes you dummy, you're supposed to <i>click</i> the word '<b><i><u><font color="blue">here</font></u></i></b>' in the sentence above...)</font>
+
+
+
+  <b>(02-09-2019 @ 15:42)</b>
+
+  * <b>Auth (un)blocker:</b> Implemented a better elevation request method using <i>PowerShell</i> to
+    hopefully resolve the <i>Windows Defender</i> problem for seeing my script as a trojan/virus
+
+
+
+  <b>(16-08-2019 @ 15:20)</b>
+
+  * Probleem verholpen waarbij het niet langer mogelijk was m.b.v. 'Change Playername' de spelernaam te wijzigen
+    (oorzaak: een door Microsoft tussentijds doorgevoerde launcher_profiles structuurwijziging)
+
+  * Structuur van "cracked" launcher_profiles bijgewerkt n.a.v. het bovengenoemde probleem
+
+  * Globale curl timeout-tijd naar 3 seconden verhoogt (nuttig voor mensen met een slechte of langzame internetverbinding)
+
+  * Cosmetisch foutje verholpen waarbij de tekst 'Please wait...' onbedoeld in het 'succesvol bijgewerkt' dialoogscherm verscheen
+
+  * <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> bijgewerkt naar versie <a href="https://curl.haxx.se/windows/" target="_blank">7.65.3</a>
+
+
+
+  <b>(10-08-2019 @ 03:35)</b>
+
+  * Update logica veranderd en statische update URLs vervangen door een <a href="https://www.google.com/search?&q=DDNS" target="_blank" title="Dynamisch DNS">DDNS</a> adres.
+
+    <b>LET OP:</b> Beschik je over een <u>oudere</u> versie van mijn launcher en krijg je steeds de melding <b>"UNABLE TO RETRIEVE UPDATE INFORMATION"</b>?
+            Download de bijgewerkte versie van <a href="http://web.minecraftnoob.com" target="_blank">http://web.minecraftnoob.com</a> om de launcher weer <b>volledig</b> werkend te maken!
+
+
+
+  <b>(02-07-2019 @ 00:55)</b>
+
+  * launcher_profiles validatie code verder geoptimaliseerd
+
+  * <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> bijgewerkt naar versie <a href="https://skanthak.homepage.t-online.de/curl.html" target="_blank">7.64.1</a>
+
+  * Meer grammaticale verbeteringen
+
+
+
+  <b>(26-06-2019 @ 23:00)</b>
+
+    De nasleep van het warme weer en de provider wijziging is kennelijk nog niet voorbij...
+
+
+  * 'Player' spelernaam probleem verholpen (er ontbrak nog een launcher profile entry)
+
+  * Launcher citaten werden niet meer in de correcte taal weergegeven
+
+  * ASCII-bestanden werden met de verkeerde nieuwe-regel methode gedownload
+    Dit resulteerde bij WhatsNew.htm in overbodige leegtes tussen de regels
+
+  * Nog wat overige (niet zo interessante) grammaticale verbeteringen
+
+
+
+  <b>(23-06-2019 @ 18:10)</b>
+
+  * Ik zal het niet te lang maken (daar is het veels te warm voor :p ). We zijn afgelopen maand
+    van internet provider veranderd. De launcher kon hierdoor niet meer de update bestanden vinden.
+    Het gevolg hiervan was dat gebruikers steeds melding kregen over een nieuwe versie, welke natuurlijk
+    niet te installeren was. Wegens drukte @ (real) life heeft dit probleem een tijdje aangehouden.
+
+    <b>TOT NU!</b>
+
+    Je zal zelf wel even de nieuwe installer of portable versie moeten downloaden van
+    <a href="http://web.minecraftnoob.com" target="_blank"><b>web.minecraftnoob.com</b></a> om de launcher volledig werkend te maken. <b>Veel succes alvast!</b>
+
+    <font size=1>(en <u>nu</u> is het tijd voor een lekkere koude Cola met ijsblokjes <b>^_^</b>)</font>
+
+  * <a href="https://stedolan.github.io/jq/" target="_blank"><b>jq-win32.exe</b></a> bijgewerkt naar versie <a href="https://stedolan.github.io/jq/download/" target="_blank"><b>1.6</b></a>
+
+  * Hier en daar wat grammaticale shizzle aangepast
+
+
+
+  <b>(30-01-2019 @ 03:18)</b>
+
+  * De servers.dat backup methode werkte kennelijk nog niet helemaal probleemloos (oeps)... :-(
+
+
+
+  <b>(26-01-2019 @ 06:10)</b>
+
+  * Probleem verholpen waarbij het updaten van de "cracked" serverlijst niet langer mogelijk was
+
+  * Aan de lijst met voorgedefinieerde servers heb ik een aantal nieuwe "cracked" servers toegevoegd
+
+  * Als je van de bovengenoemde serverlijst gebruik maakt zal er van je huidige serverlijst voortaan een backup worden gemaakt
+
+
+
+  <b>(14-01-2019 @ 00:52)</b>
+
+  Een nieuw jaar is aangebroken. Dus ook nieuwe problemen (en oplossingen :p)
+
+  * Wellicht komt de melding "UNABLE TO RETRIEVE UPDATE INFORMATION" je bekend voor
+    Ik kreeg deze fout op den duur bij iedere *succesvolle* update van m'n launcher >_<
+
+    Met deze update gebeurd dit hopelijk niet meer!
+    (of alleen wanneer er een terechte reden voor is)
+
+  * <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> is bijgewerkt naar versie <a href="https://skanthak.homepage.t-online.de/curl.html" target="_blank">7.63.0</a>
+
+
+
+  <b>(06-10-2018 @ 22:22)</b>
+
+  * Nieuwe problemen verholpen m.b.t. speciale tekens in paden en mijn scripts vroegtijdig lieten "<a href="https://i.imgur.com/oEEsAvh.gif" target="_blank">crashen</a>".
+    (bedankt <a href="https://discord.gg/4xHvdYG" title="Davy#4520 @ Discord" target="_blank">Davy#4520</a> voor het melden!)
+
+  * Functionaliteit van 'Auth (un)blocker' uitgebreid en een keuzemenu toegevoegd
+
+  * Zo nu en dan voorkomend "Kan geen verbinding met de server maken." probleem verholpen
+    wanneer er van een "cracked" naar een officieel launcher profiel wordt gegaan (flushdns)
+
+  * <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> bijgewerkt naar versie <a href="https://skanthak.homepage.t-online.de/curl.html" target="_blank">7.61.1</a>
+
+
+
+  <b>(27-08-2018 @ 06:07)</b>
+
+  + Mogelijkheid toegevoegd om d.m.v. een snelkoppeling mijn launcher te verwijderen
+    (de code was al deels aanwezig in de voorgaande update maar is nu zo goed als af)
+
+  * Heb <u>eindelijk</u> die vervelende dubbele voortgangsindicator gefixt waaraan ik mij de regenboogkleuren irriteerde
+    (was vergeten https i.p.v. http te gebruiken, hierdoor werd curl omgeleid, wat in een dubbele balk resulteerde)
+
+
+
+  <b>(22-08-2018 @ 00:18)</b>
+
+   Jaaaaaaa.. na een lange tijd zonder echt nieuws of updates heb ik toch weer iets voor elkaar gekregen:
+
+  + Optie toegevoegd om een samengestelde lijst met "cracked" servers te installeren (je hoeft dus niet zelf op zoek te gaan)
+
+  * Updater code bijgewerkt
+
+  * Op advies van <a href="https://discord.gg/4xHvdYG" title="SaintJohan#6642 @ Discord" target="_blank">SaintJohan#6642</a> duidelijker vermeld wanneer/waarvoor Adminrechten worden vereist
+
+  * Resourcepack bijgewerkt voor 1.13 en de (hoofd)menutekst aangepast
+
+  * <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> bijgewerkt naar versie <a href="https://skanthak.homepage.t-online.de/curl.html" target="_blank">7.61.0</a>
+
+
+
+  <b>(02-09-2017 @ 20:13)</b>
+
+  * Foutje verholpen m.b.t. speciale tekens in gebruikerspaden (bedankt <a href="https://discord.gg/4xHvdYG" title="°U4Fun°™ @ Discord" target="_blank">°U4Fun°™</a> voor het melden!)
+
+  * Resourcepack credits/splashes bijgewerkt voor Minecraft <b>1.12.1</b>
+
+  + Willekeurige berichten worden nu in de gekozen taal van de officiële launcher weergegeven (voor 't moment alleen nog Nederlands en Engels)
+
+
+
+  <b>(31-07-2017 @ 05:54)</b> - ENGLISH ONLY THIS TIME!
+
+  * Auth (un)blocker  : Added more descriptions to (hopefully) make everything more clear
+
+                        Fixed a problem regarding the detection of running programs:
+                        Auth (un)blocker wrongfully considered a Minecraft related
+                        browser session for a running Minecraft game/launcher
+
+
+  * Minecraft Launcher: Cleaned up some unnecessary code
+
+                        Fixed a problem regarding error messages for duplicate/missing mod HOSTS entries
+
+                        Added more descriptions for better user understanding
+
+
+  + Added a couple of more random messages! :)
+
+
+
+  <b>(26-07-2017 @ 05:05)</b>
+
+  * Sterk verbeterde logica m.b.t. het opvragen en bewaren van de launcher gebruikersinstellingen
+
+  * Auth (un)blocker laat nu de <i>correcte</i> waarde zien bij <i>Update notifications</i>
+
+
+
+  <b>(24-07-2017 @ 17:20)</b>
+
+  * Random berichten worden nu standaard weergegeven als er van een launcher versie wordt geüpdate waar deze functie niet in zit
+
+  * Naast de instellingen van het kleurenschema worden nu ook de update notificatie-, automatische update- en random berichten instellingen in <b>firstrun</b> opgeslagen
+
+    (met de bovengenoemde wijziging behoren de bestanden <b>NoNag.cir</b> en <b>messages.off</b> tot de verleden tijd)
+
+
+
+  <b>(23-07-2017 @ 22:10)</b>
+
+  * Uitgeschakelde random berichten laat geen <b>MESSAGE: (DISABLED)</b> meer zien (uit is nu <i>écht</i> uit)
+
+  * Na het bijwerken van de launcher wordt er niet direct wéér naar nieuwe updates gezocht
+
+
+
+  <b>(15-07-2017 @ 01:32)</b>
+
+  * "Dankzij" een aanpassing door Mojang was <b>Forge Mod Loader</b> niet meer in offline "cracked" mode te gebruiken (bedankt <a href="https://discord.gg/4xHvdYG" target="_blank" title="Visit The Minecraft Noob on Discord (no account required)">Nick_024</a> om dit te laten weten! <b>:D</b>)
+
+  + <b>[optioneel]</b> Automatische launcher updates toegevoegd (werking is afhankelijk van <u><b>U</b></u>ser <u><b>A</b></u>ccount <u><b>C</b></u>ontrol)
+
+  * Licht verbeterde detectie/herkenning van dubbele/foutieve waarden in het HOSTS bestand
+
+  * Algehele/globale launcher optimalisaties/verbeteringen
+
+  * Documentatie (<b>LeesMij.htm</b> en <b>Auth (un)blocker.htm</b>) ook weer 's bijgewerkt
+
+
+
+  <b>(06-07-2017 @ 19:13)</b>
+
+  * De random berichten-functie kan nu worden uit- en aangezet
+
+    Methode 1: Open de map 'Minecraft (copyitright)', ga naar 'Tools' en dan naar 'Toggle Random Messages'
+    Methode 2: Rechtsklik op snelkoppeling 'Minecraft Launcher' -> Eigenschappen -> Bestandslocatie openen
+
+
+  * Bij uitgezette update notificaties wordt je voortaan op niet-indringende wijze over nieuwe versies geïnformeerd
+
+  + Het is nu in het eindscherm van de launcher te zien na hoeveel seconden het venster sluit
+
+
+
+  <b>(15-06-2017 @ 18:15)</b>
+
+  + Ter voorkoming van het beschadigen of verloren gaan van je launcher profiel zal Auth (un)blocker
+    voor het (un)blocken van de authenticatie server controleren of de officiële Minecraft launcher
+    en Minecraft nog actief zijn en je zonodig <a href="https://i.imgur.com/3It96aw.gif" target="_blank">adviseren</a> om deze programma's eerst af te sluiten
+
+  * Bij het controleren/opvragen van het launcher kleurenschema wordt niet langer onnodig naar 'firstrun' geschreven
+
+
+
+  <b>(05-06-2017 @ 20:10)</b>
+
+  + Standaard systeempadwaarden toegevoegd: Bij het ontbreken van Windows systeempaden in de PATH omgevingsvariabel zal de launcher nu blijven functioneren
+
+  * De code welke ingevoerde spelernamen op correctheid (geldige tekens en juiste lengte) controleert is verbeterd.
+
+  * Optimalisatie: Herhalende programma/launcher functies met betrekking tot naam invoer/controle zijn geminimaliseert tot één codeblok
+
+  + Ik heb een aantal nieuwe berichten toegevoegd (ideeën zijn welkom!)
+
+
+
+  <b>(29-05-2017 @ 03:50)</b>
+
+  * Ik heb een betere <a href="https://nl.wikipedia.org/wiki/Pseudotoevalsgenerator" target="_blank">pseudotoevalsgenerator</a> <a href="https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range">gevonden</a> welke gebruik maakt van <a href="https://en.wikipedia.org/wiki/Windows_Script_Host" target="_blank">Windows Script Host</a> (WSH).
+
+    Wanneer de <b><i>Windows Script Host</i></b> (om wat voor reden dan ook) gedeactiveerd blijkt te zijn zal er worden teruggevallen op de <a href="https://blogs.msdn.microsoft.com/oldnewthing/20100617-00/?p=13673" target="_blank">minder</a> kwalitatieve <B><a href="https://ss64.com/nt/syntax-random.html" target="_blank">%RANDOM%</a></b> pseudotoevalsgenerator.
+
+
+
+  <b>(24-05-2017 @ 15:33)</b>
+
+  * Bij een vroegtijdig afgebroken download van Minecraft.exe (door een slechte verbinding) zal het incomplete/beschadigde bestand nu worden verwijderd
+    Mijn launcher script zal dus niet langer proberen de beschadigde .exe te starten wat anders toch in een Windows foutmelding zou resulteren
+
+  + Random berichten kunnen nu uit <a href="https://i.imgur.com/tWLmUJB.gif" target="_blank">meerdere</a> regels bestaan :)
+
+    (het is mij opgevallen dat de toevalsgenerator <b>%RANDOM%</b> een voorspelbaar patroon heeft)
+    (ik zal proberen een betere variant te vinden/implementeren :-/ )
+
+
+    <b>[Voor de oplettende lezers]</b>
+
+    Heb je een YouTube kanaal en zou je willen dat ik dit kanaal aan de random berichtenlijst toevoeg?
+    Maak een (YouTube) filmpje over m'n launcher en wie weet heb je geluk.. :)
+
+
+
+  <b>(21-05-2017 @ 03:16])</b>
+
+  * Jaja, ik weet het... <h1>alweer een nieuwe update!?</h1>
+
+    De vorige update was nog niet helemaal zoals ik het wou hebben...
+
+    Naast dat kleuren nu op meerdere plekken worden toegepast heb ik <u>tevens</u> een <b>random</b> <a href="https://i.imgur.com/gZVZfzJ.gif" target="_blank">berichten</a> functie toegevoegd :D
+
+    Je ziet deze berichten vóór Minecraft verschijnt.
+
+
+    Óók zal bij iedere update nu <i>automatisch</i> naar verhoogde <a href="https://i.imgur.com/9abyTGI.png" target="_blank">(admin)rechten</a> worden gevraagd indien je deze niet hebt.
+    Je hoeft dus <u>niet</u> meer het bestandje te <b>rechts</b>klikken maar kunt direct verder gaan.
+
+
+    <b>DAN NOG DIT:</b>
+
+    Indien je <u>ondersteuning</u> van mij wenst is een vereiste dat je <i><b>aandachtig</b></i> de
+    documentatie hebt doorgenomen en <u>nauwkeurig</u> alle aanwijzingen hebt gevolgd
+
+
+
+  <b>(17-05-2017 @ 05:00)</b>
+
+  + Beter laat dan nooit: Het is nu mogelijk de launcher 'interface' van een ander <a href="https://i.imgur.com/wBRomfo.gif" target="_blank">kleurtje</a> te voorzien <b>:O)</b>
+
+    Om dit mogelijk te maken heb ik gebruik gemaakt van het interne systeem commando: <a href="https://ss64.com/nt/color.html" target="_blank">COLOR</a>
+
+    Wat is <b>jouw</b> <strike>lievelings</strike> favoriete (launcher) kleurenschema?
+
+    Oja.. indien je <i>geen</i> kleurcodes opgeeft zal <u>mijn</u> kleurenschema worden toegepast <b>;o)</b>
+
+
+
+  <b>(05-05-2017 @ 20:02)</b>
+
+  * Het updaten naar toekomstige launcher versies zal alleen nog mo-
+    gelijk zijn indien de launcher met Admin rechten is uitgevoerd.
+
+    Ik heb deze keuze gemaakt omdat het nog steeds vaak voor komt dat
+    gebruikers een installatie bestemming opgeven waar de betreffende
+    persoon onvoldoende (schrijf)rechten tot heeft.
+
+    Aangezien 99% van de launcher gebruikers geen legale versie hebben
+    en voor een goede werking (hint: 'Auth (un)blocker') Adminrechten
+    worden vereist voorzie ik geen problemen met de doorgevoerde wijziging
+
+  * <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> is bijgewerkt naar versie <a href="http://www.paehl.com/open_source/?CURL_7.54.0" target="_blank">7.54.0</a>
+
+
+
+  <b>(27-03-2017 @ 16:22)</b>
+
+  + Het is <u>eindelijk</u> mogelijk om <b><a href="https://i.imgur.com/ViHByc8.gif" target="_blank">meerdere</a></b> "cracked" spelers toe te voegen! :-)
+
+  + Als er meerdere spelers zijn toegevoegd zal de officiële launcher
+    een overzicht van de spelernamen weergeven waaruit je kunt kiezen
+
+    De officiële launcher zal bij het starten van een spel tevens niet automatisch sluiten,
+    zodat je (of iemand anders) nadien de mogelijkheid hebt een andere spelernaam te kiezen
+
+  + Ik heb een met <b><a href="https://www.getpaint.net" target="_blank">Paint.NET</a></b> gewijzigde <b>Steve</b> en <b>Alex</b> skin aan m'n resource pack toegevoegd
+
+  * <b><a href="https://curl.haxx.se" target="_blank">curl</a></b> is bijgewerkt naar versie <a href="http://www.paehl.com/open_source/?CURL_7.53.1" target="_blank">7.53.1</a>
+
+  * <b>LeesMij</b>.htm, <b>Auth (un)blocker</b>.htm en <b>Skins</b>.htm zijn (wederom) bijgewerkt
+
+
+ Indien je ondersteuning van mij wenst is een vereiste dat je <i><b>aandachtig</b></i> de
+ documentatie hebt doorgenomen en <u>nauwkeurig</u> alle aanwijzingen hebt gevolgd
+
+
+
+  <b>(16-03-2017 @ 05:16)</b>
+
+  In deze update is weer het e.e.a. verbeterd/veholpen:
+
+
+ * Iemand bleek een probleem te hebben welke zich voor deed wanneer er spaties in de padnaam zaten
+   De launcher bleef hierdoor steeds het scherm weergeven waar je een nieuw launcher profiel aanmaakt
+
+   Dit probleem zou zich niet meer moeten voordoen
+
+
+ * Wanneer er door de gebruiker een nieuw launcher profiel wordt aanmaakt zal de launcher na het
+   ingeven van een spelernaam niet meer direct contact leggen met de (skin)server(s) van Mojang.
+
+   De gebruiker zal nu eerst moeten bevestigen of deze een skin wilt (dit voorkomt onnodige serververzoeken)
+
+
+ * Indien 'Minecraft Launcher' met verhoogde (Admin) rechten wordt uitge-
+   voerd, zal deze aangegeven de launcher op gewone wijze uit te voeren
+
+   Dit heb ik gedaan omdat anders de kans bestaat dat de launcher naar een andere
+   locatie schrijft dan oorspronkelijk het geval was. Dit kan tot problemen leiden
+
+
+ * <b>Auth (un)blocker</b>.htm, <b>Skins</b>.htm en <b>LeesMij</b>.htm zijn van extra informatie voorzien
+
+
+
+  <b>(14-03-2017 @ 23:24)</b>
+
+ Er wordt vaak gezegd <i>don't fix it if it's not broken</i>.
+ Maar als iets werkt en je ziet ruimte voor verbetering, wat dan?
+
+ Dan pak ik <a href="http://winmerge.org" target="_blank">WinMerge</a> erbij en ga ik <u>helemaal</u> los! :+)
+
+
+ Maar even zonder dollen; de voornaamste wijzigingen zijn als volgt:
+
+ * Bredere inzet van <a href="https://stedolan.github.io/jq/" target="_blank">jq-win32.exe</a> voor het nauwkeurig verwerken van <a href="https://en.wikipedia.org/wiki/JSON" target="_blank">JSON</a> gerelateerde data.
+
+ * <b>Auth (un)blocker</b> laat nu zien of een geselecteerde speler een skin heeft ingesteld
+
+ * De gebruiker kan indien hij/zij dit wenst een nieuwe
+   naam ingegeven zodra er geen skin wordt aangetroffen
+
+ * De <b>snelstart</b>.txt en <b>quickstart</b>.txt zijn aangepast
+
+ - <i>Minecraft Extractor (copyitright)</i>.cmd is spontaan verdwenen
+   (de meeste mensen beschikken tóch over WinRAR, 7-Zip e.d.)
+
+
+
+  <b>(08-03-2017 @ 05:02)</b>
+
+ Na dagen van zwoegen en zweten (heb veel moeten debuggen) hoop ik nu dan
+ toch <u>eindelijk</u> een <b>100%</b> goedwerkende launcher te hebben waarbij
+ de problemen met Forge allemaal tot het verleden behoren.
+
+ Wat er zoal is veranderd is het volgende:
+
+
+ * Ontbrekend veld in 'cracked' launcher profiel zou verholpen moeten zijn
+   (het installeren va Forge Mod Loader moet nu zonder problemen verlopen)
+
+ + Er is een extra info regeltje aan het statusscherm van <i>Auth (un)blocker</i> toegevoegd
+   Nu wordt er aangegeven of <b>Mod ondersteuning</b> aanwezig is. Indien de ondersteuning
+   ontbreekt wordt je hierover geinformeerd.
+
+ * De documentatie m.b.t. mods en skins is bijgewerkt.
+
+
+ Volgens mij was dit het wel zo'n beetje. Indien je ondersteuning van mij wenst is een vereiste
+ dat je <i><b>aandachtig</b></i> de documentatie hebt doorgenomen en <u>nauwkeurig</u> alle aanwijzingen hebt gevolgd.
+
+
+
+  <b>(06-03-2017 @ 16:04)</b>
+
+ Na een lange tijd van stilte, afwezigheid en andere bezigheden ben ik hier
+ weer met een nieuwe update! (de vorige update dateert van <b>01-06-2016</b>!)
+
+ Tijdens deze periode is er weer veel gebeurd en veranderd, maar gelukkig
+ heb ik het weer voor elkaar gekregen om m'n launcher werkende te maken!
+
+ Jullie vragen je wellicht af wat er zoal veranderd is bij deze update.
+ Ten eerste is Minecraft weer 'volledig' speelbaar i.c.m. de nieuwe launcher (jippie!)
+
+ Maar omdat Mojang/Microsoft de beveiliging weer iets heeft opgeschroefd is de werking
+ van de launcher veranderd. Raadpleeg dus <u>zeker</u> <b>snelstart</b>.txt voor instructies!
+
+ 
+ <b>Verder:</b>
+
+ + is het voor '<b>cracked</b>' spelers mogelijk <b>UUID skins</b> toe te passen (raadpleeg <b>Skins</b>.htm voor meer info)
+ + is de documentatie verbeterd (geen <strike>saaie</strike> tekstbestanden meer maar <a href="http://web.minecraftnoob.com" title="klik om m'n webpagina te bezoeken (een website kun je het niet echt noemen :^p )" target="_blank">klikbare</a> <b>html</b>!)
+ + is de documentatie uitgebreid en nu tevens in het <u>Nederlands</u>)
+ + geeft <i>Auth (un)blocker</i> nu meer nuttige informatie (weliswaar in het engels)
+ + zijn er een aantal easter eggs toegevoegd
+ + Is m'n Minecraft server weer tot leven gewekt! <font size="1">(just kidding)</font>
+
+ 
+ Je ziet het.. er is weer <u>ontzettend</u> veel te beleven in Minecraft land ;-)
+
+ Mocht je er om wat voor reden dan ook niet uitkomen, ik ben te bereiken via <a href="https://discord.gg/4xHvdYG" title="Geen account vereist :)" target="_blank">Discord</a>
+
+
+
+ Groetjes en wellicht tot chats! :^D
+
+
+ <b>copyitright</b>
+</pre>
+</body>
+</html>

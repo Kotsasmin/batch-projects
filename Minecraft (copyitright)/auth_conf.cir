@@ -1,0 +1,10 @@
+
+:: Auth (un)blocker config
+:: ========================
+:: This file stores information about a Windows User's ".minecraft" folder location
+:: If you're planning to play under a different (Admin) Windows account, delete this
+:: file to generate a new config with values of the currently logged in Windows User
+:: ==================================================================================
+
+USER_APPDATA="C:\Users\Home\AppData\Roaming"
+AUTH_USERNAME="Home"
